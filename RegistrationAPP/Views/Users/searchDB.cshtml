@@ -1,0 +1,63 @@
+﻿@model IEnumerable<RegistrationAPP.Models.User>
+
+@{
+    ViewBag.Title = "View Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>View Users</h1>
+</div>
+<!--search-->
+<form class="navbar-form navbar-left" role="search">
+    @using (Html.BeginForm("searchDB", "Users", FormMethod.Get))
+    {
+        <div class="form-group">
+            @Html.TextBox("searchName")
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+            <div class="radio">
+                <label>@Html.RadioButton("searchType", "Email")Search by email</label><br />
+                <label>@Html.RadioButton("searchType", "Name")Search by name</label>
+            </div>
+    }
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddInfo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddInfo)
+            </td>
+        </tr>
+    }
+
+</table>

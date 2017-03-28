@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>Registration was successful</h1>
+</div>
+<div>
+    @Html.ActionLink("Back to registration page", "Create")<br />
+    @Html.ActionLink("Go to User search page", "searchDB")
+</div>
