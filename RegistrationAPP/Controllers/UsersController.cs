@@ -11,6 +11,7 @@ using RegistrationAPP.Models;
 using System.Data.SqlClient;
 using System.Data.Entity.Infrastructure;
 using System.Web.UI;
+using System.Web.Services;
 
 namespace RegistrationAPP.Controllers
 {
@@ -45,7 +46,8 @@ namespace RegistrationAPP.Controllers
                 {
                     db.Users.Add(user);
                     await db.SaveChangesAsync();
-                    return RedirectToAction("SignUp");
+                    TempData["successmessage"] = "Registration successfull";
+                    return RedirectToAction("searchDB");
                 }
                 catch (DbUpdateException ex)
                 {

@@ -3,7 +3,14 @@
 @{
     ViewBag.Title = "View Users";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var message = TempData["successmessage"] ?? string.Empty;
 }
+
+<script type="text/javascript">
+var message = '@message';
+if(message)
+    alert(message);
+</script>
 
 <div class="jumbotron">
     <h1>View Users</h1>
