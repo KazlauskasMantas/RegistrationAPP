@@ -25,11 +25,6 @@ namespace RegistrationAPP.Controllers
             return View(await db.Users.ToListAsync());
         }
 
-        public ActionResult SignUp()
-        {
-            return View();
-        }
-
         // GET: Users/Create
         public ActionResult Create()
         {
@@ -67,6 +62,7 @@ namespace RegistrationAPP.Controllers
             return View(user);
         }
 
+        //Dispose
         protected override void Dispose(bool disposing)
         {
             if (disposing)
